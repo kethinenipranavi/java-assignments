@@ -4,19 +4,19 @@ public class IncomeTax {
 public static void main(String[] args) {
 	
 	Scanner sc = new Scanner(System.in);
-	maths = sc.nextInt();
-	physics = sc.nextInt();
-	chemistry = sc.nextInt();
-	if (maths > 60 && physics > 60 && chemistry > 60)
-		System.out.println("passed");
-	if ((maths > 60 && physics > 60) || (maths > 60 && chemistry > 60) || (physics > 60 && chemistry > 60))
-		System.out.println("Promoted");
-	if ((maths > 60 || (physics > 60 && chemistry > 60 && maths > 60))
-			|| (physics > 60 || (maths > 60 && physics > 60 && chemistry > 60))
-			|| (chemistry > 60 || (maths > 60 && physics > 60 && chemistry > 60)))
-		System.out.println("failed");
+	long annualSalary;
+	annualSalary=sc.nextLong();
+	if (annualSalary > 0 && annualSalary <=180000)
+		System.out.println("tax amount is nill");
+	else if (annualSalary >=180001 && annualSalary <=300000)
+		System.out.println("tax amount is " + annualSalary * 0.10);
+	else if (annualSalary >=300001 && annualSalary <=500000)
+		System.out.println("tax amount is" + annualSalary * 0.20);
+	else if (annualSalary >=500001 && annualSalary <=1000000)
+		System.out.println("tax amount is" + annualSalary * 0.30);
+			
 
 	sc.close();
-}
-}
+	}
+
 }
