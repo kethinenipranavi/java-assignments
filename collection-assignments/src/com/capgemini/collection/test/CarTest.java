@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,39 +14,55 @@ import com.capgemini.collection.model.Car;
 
 public class CarTest {
 
-	private static Car bmwCar;
-	private static Car audiCar;
-	private static Car shiftDesireCar;
+	private  Car bmw;
+	private  Car audi;
+	private  Car shiftDesire;
 
 	@Before
-	public void setUp(){
-		bmwCar = new Car("India","BMWX3",2019,3500000);
-		audiCar = new Car("India","AUDIA3",2019,3500000);
-		shiftDesireCar = new Car("India","ix20",2018,900000);
+	public void setUp() {
+		bmw = new Car("Chaina", "BMWX3", 2019, 3500000);
+		audi = new Car("US", "AUDIA3", 2019, 3500000);
+		shiftDesire = new Car("India", "ix20", 2018, 900000);
 	}
+
 	@Test
 	public void testCarAcceptingDuplicateValues() {
-		ArrayList<Car> car= new ArrayList<>();
-		car.add(bmwCar);
-		car.add(audiCar);
-		car.add(shiftDesireCar);
-		car.add(bmwCar);
-		
-		Iterator<Car> it=car.iterator();
-			
-		assertEquals(bmwCar,it.next());
-		assertEquals(audiCar, it.next());
-		assertEquals(shiftDesireCar, it.next());
+		ArrayList<Car> car = new ArrayList<>();
+		car.add(bmw);
+		car.add(audi);
+		car.add(shiftDesire);
+		car.add(bmw);
+
+		Iterator<Car> it = car.iterator();
+
+		assertEquals(bmw, it.next());
+		assertEquals(audi, it.next());
+		assertEquals(shiftDesire, it.next());
 	}
-	
+
 	@Test
 	public void testCarNotAcceptingDuplicateValues() {
-		HashSet<Car> car= new HashSet<>();
-		car.add(bmwCar);
-		car.add(audiCar);
-		car.add(shiftDesireCar);
-		//Car.add(bmwCar);
-		assertEquals(3,car.size());
+		HashSet<Car> car = new HashSet<>();
+		car.add(bmw);
+		car.add(audi);
+		car.add(shiftDesire);
 
-}
+		assertEquals(3, car.size());
+
+	}
+	@Test
+	public void testCarSortedBasedOnMake() {
+		TreeSet<Car> cars = new TreeSet<>();
+		cars.add(bmw);
+		cars.add(audi);
+		cars.add(shiftDesire);
+		Iterator<Car> it = cars.iterator();
+		assertEquals(bmw, it.next());
+		assertEquals(shiftDesire, it.next());
+		assertEquals(audi, it.next());
+		
+		
+		
+	}
+
 }
