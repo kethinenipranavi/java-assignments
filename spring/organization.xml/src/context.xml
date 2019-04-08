@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:util="http://www.springframework.org/schema/util"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+<bean id = "organization" class="com.capgemini.spring.model.Organization">
+<constructor-arg index="0" value="1" type="int"></constructor-arg> 
+<constructor-arg index="1" value="Capgemini" type="String"></constructor-arg>
+<constructor-arg index="2" value="600000" type="double"></constructor-arg> 
+<constructor-arg index="3" ref="address"></constructor-arg> 
+<constructor-arg index="4" >
+<list>
+<value>Paul</value>
+</list>
+</constructor-arg>
+<constructor-arg index="5" >
+<set>
+<value>IT</value>
+<value>CSE</value>
+</set>
+</constructor-arg>
+<constructor-arg index="6">
+<map>
+<entry key = "IT" value = "Pranavi"/>
+<entry key = "CSE" value = "Anu"/>
+</map>
+</constructor-arg>
+<constructor-arg index="7" ref="ipAddress">
+</constructor-arg>
+<constructor-arg index="8" ref="databaseDetails">
+</constructor-arg>
+</bean>
+<util:properties id="ipAddress" location="ip.properties"/>
+<util:properties id="databaseDetails" location="databaseDetails.properties"/>
+<bean id = "address" class="com.capgemini.spring.model.Address">
+<constructor-arg index="0" value="Mumbai"></constructor-arg> 
+<constructor-arg index="1" value="Maharashtra"></constructor-arg> 
+</bean>
+
+</beans>
+
+
+
+
+

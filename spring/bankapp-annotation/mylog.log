@@ -1,0 +1,9 @@
+2019-04-08 13:32:56,462[yyyy-MM-dd HH:mm:ss]-0 - [main] DEBUG org.springframework.core.env.StandardEnvironment  - Adding [systemProperties] PropertySource with lowest search precedence
+2019-04-08 13:32:56,462[yyyy-MM-dd HH:mm:ss]-0 - [main] DEBUG org.springframework.core.env.StandardEnvironment  - Adding [systemEnvironment] PropertySource with lowest search precedence
+2019-04-08 13:32:56,462[yyyy-MM-dd HH:mm:ss]-0 - [main] DEBUG org.springframework.core.env.StandardEnvironment  - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2019-04-08 13:32:56,479[yyyy-MM-dd HH:mm:ss]-17 - [main] INFO org.springframework.context.support.ClassPathXmlApplicationContext  - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@244038d0: startup date [Mon Apr 08 13:32:56 IST 2019]; root of context hierarchy
+2019-04-08 13:32:56,542[yyyy-MM-dd HH:mm:ss]-80 - [main] DEBUG org.springframework.core.env.StandardEnvironment  - Adding [systemProperties] PropertySource with lowest search precedence
+2019-04-08 13:32:56,542[yyyy-MM-dd HH:mm:ss]-80 - [main] DEBUG org.springframework.core.env.StandardEnvironment  - Adding [systemEnvironment] PropertySource with lowest search precedence
+2019-04-08 13:32:56,542[yyyy-MM-dd HH:mm:ss]-80 - [main] DEBUG org.springframework.core.env.StandardEnvironment  - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2019-04-08 13:32:56,558[yyyy-MM-dd HH:mm:ss]-96 - [main] INFO org.springframework.beans.factory.xml.XmlBeanDefinitionReader  - Loading XML bean definitions from class path resource [context.xml]
+2019-04-08 13:32:56,574[yyyy-MM-dd HH:mm:ss]-112 - [main] DEBUG org.springframework.beans.factory.xml.DefaultDocumentLoader  - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
