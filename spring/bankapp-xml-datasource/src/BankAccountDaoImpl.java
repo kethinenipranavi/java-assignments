@@ -10,16 +10,25 @@ import java.util.List;
 import com.capgemini.bankapp.client.BankAccount;
 import com.capgemini.bankapp.dao.BankAccountDao;
 import com.capgemini.bankapp.exception.AccountNotFoundException;
-import com.capgemini.bankapp.util.DbUtil;
+import javax.sql.DataSource;
+
 
 public class BankAccountDaoImpl implements BankAccountDao {
-
-	Connection connection;
-	public BankAccountDaoImpl(Connection connection){
-		this.connection=connection;
-	}
 	
-
+	private DataSource dataSource;
+	private Connection connection;
+	
+ 
+	public BankAccountDaoImpl(DataSource dataSource)
+	{
+		this.dataSource=dataSource;
+	try {
+		connection=dataSource.getConnection();
+		connection.setAutoCommit(false);
+	}
+	catch(Exception e) {
+	}
+	}
 	@Override
 	public double getBalance(long accountId) {
 		String query = "SELECT account_balance FROM bankaccounts WHERE account_id=" + accountId;
@@ -42,7 +51,7 @@ public class BankAccountDaoImpl implements BankAccountDao {
 		String query = "UPDATE bankaccounts SET account_balance=? WHERE account_id=?";
 
 		//Connection connection = DbUtil.getConnection();
-		try (PreparedStatement statement = connection.prepareStatement(query)) {
+		try (PreparedStatement statement =connection.prepareStatement(query)) {
 			statement.setDouble(1, newBalance);
 			statement.setLong(2, accountId);
 
@@ -160,5 +169,25 @@ public class BankAccountDaoImpl implements BankAccountDao {
 		}
 		return false;
 	}
-
+	@Override
+	public  void commit() {
+		try {
+			if (connection != null) {
+				connection.commit();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void rollback() {
+		try {
+			if (connection != null) {
+				connection.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
